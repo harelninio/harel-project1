@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+       <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">New Search</legend>
+                  <div class="form-group">
+                    {{ form.symbol.label(class="form-control-label") }}
+                    {% if form.symbol.errors %}
+                        {{ form.symbol(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.symbol.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.symbol(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+
+             <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+                <br><br><br>
+            <article class="media content-section">
+            <div class="media-body"
+                    {{ form.stockdate.label(class="form-control-label") }}
+                    {% if form.stockdate.errors %}
+                        {{ form.stockdate(class="form-control form-control-lg is-invalid") }}
+                        <a class="invalid-feedback">
+                            {% for error in form.stockdate.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </a>
+                    {% else %}
+                        {{ form.stockdate(class="form-control form-control-lg") }}
+                    {% endif %}
+            </div>
+            <div class="article-metadata">
+                    {{ form.stockopen.label(class="form-control-label") }}
+                    {{ form.stockopen(class="form-control form-control-lg") }}
+
+            </div>
+            <div class="article-metadata">
+                    {{ form.stockclose.label(class="form-control-label") }}
+                    {% if form.stockclose.errors %}
+                        {{ form.stockclose(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.stockclose.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.stockclose(class="form-control form-control-lg") }}
+                    {% endif %}
+            </div>
+                   </article>
+            </fieldset>
+       </form>
+
+{% endblock content %}

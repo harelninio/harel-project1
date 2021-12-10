@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    {% for stock in stocks %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{stock.symbol}}</a>
+              <small class="text-muted">{{ stock.date_active_from.strftime('%d-%m-%Y') }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ stock.name }}</a></h2>
+            <p class="article-content">{{ stock.price_stock }}</p>
+          </div>
+        </article>
+
+    {% endfor %}
+{% endblock content %}
